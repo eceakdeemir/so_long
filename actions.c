@@ -5,6 +5,8 @@ void	move_right(t_prog *prog, char **map)
 	prog->count_collect = counter_check_map(prog, 'C');
 	if (map[prog->player->player_y][prog->player->player_x + 1] != '1')
 	{
+		prog->player->count++;
+		printf("Step Count: %d\n", prog->player->count);
 		if (map[prog->player->player_y][prog->player->player_x + 1] == 'E'
 			&& prog->count_collect == 0)
 		{
@@ -13,6 +15,11 @@ void	move_right(t_prog *prog, char **map)
 		}
 		if (map[prog->player->player_y][prog->player->player_x + 1] != 'E')
 		{
+			if (map[prog->player->player_y][prog->player->player_x + 1] == 'X')
+			{
+				free_all(prog, 2);
+				exit(1);
+			}
 			map[prog->player->player_y][prog->player->player_x + 1] = 'P';
 			map[prog->player->player_y][prog->player->player_x] = '0';
 		}
@@ -24,6 +31,8 @@ void	move_left(t_prog *prog, char **map)
 	prog->count_collect = counter_check_map(prog, 'C');
 	if (map[prog->player->player_y][prog->player->player_x - 1] != '1')
 	{
+		prog->player->count++;
+		printf("Step Count: %d\n", prog->player->count);
 		if (map[prog->player->player_y][prog->player->player_x - 1] == 'E'
 			&& prog->count_collect == 0)
 		{
@@ -32,6 +41,11 @@ void	move_left(t_prog *prog, char **map)
 		}
 		if (map[prog->player->player_y][prog->player->player_x - 1] != 'E')
 		{
+			if (map[prog->player->player_y][prog->player->player_x - 1] == 'X')
+			{
+				free_all(prog, 2);
+				exit(1);
+			}
 			map[prog->player->player_y][prog->player->player_x - 1] = 'P';
 			map[prog->player->player_y][prog->player->player_x] = '0';
 		}
@@ -43,6 +57,8 @@ void	move_down(t_prog *prog, char **map)
 	prog->count_collect = counter_check_map(prog, 'C');
 	if (map[prog->player->player_y + 1][prog->player->player_x] != '1')
 	{
+		prog->player->count++;
+		printf("Step Count: %d\n", prog->player->count);
 		if (map[prog->player->player_y + 1][prog->player->player_x] == 'E'
 			&& prog->count_collect == 0)
 		{
@@ -51,6 +67,11 @@ void	move_down(t_prog *prog, char **map)
 		}
 		if (map[prog->player->player_y + 1][prog->player->player_x] != 'E')
 		{
+			if (map[prog->player->player_y + 1][prog->player->player_x] == 'X')
+			{
+				free_all(prog, 2);
+				exit(1);
+			}
 			map[prog->player->player_y + 1][prog->player->player_x] = 'P';
 			map[prog->player->player_y][prog->player->player_x] = '0';
 		}
@@ -62,6 +83,8 @@ void	move_up(t_prog *prog, char **map)
 	prog->count_collect = counter_check_map(prog, 'C');
 	if (map[prog->player->player_y - 1][prog->player->player_x] != '1')
 	{
+		prog->player->count++;
+		printf("Step Count: %d\n", prog->player->count);
 		if (map[prog->player->player_y - 1][prog->player->player_x] == 'E'
 			&& prog->count_collect == 0)
 		{
@@ -70,6 +93,11 @@ void	move_up(t_prog *prog, char **map)
 		}
 		if (map[prog->player->player_y - 1][prog->player->player_x] != 'E')
 		{
+			if (map[prog->player->player_y - 1][prog->player->player_x] == 'X')
+			{
+				free_all(prog, 2);
+				exit(1);
+			}
 			map[prog->player->player_y - 1][prog->player->player_x] = 'P';
 			map[prog->player->player_y][prog->player->player_x] = '0';
 		}
@@ -95,6 +123,5 @@ int	keycode_actions(int keycode, void *param)
 		free_all(prog_data, 2);
 		exit(1);
 	}
-	condition_image(prog_data->map, prog_data);
-	return (1);
+	return (0);
 }

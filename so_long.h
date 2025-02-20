@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/20 10:17:04 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/02/20 16:49:40 by ecakdemi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "mlx_linux/mlx.h"
@@ -7,9 +19,35 @@
 typedef struct s_image
 {
 	void	*wall_image;
+
 	void	*collection_image;
+	void	*collection_image1;
+	void	*collection_image2;
+	void	*collection_image3;
+	void	*collection_image4;
+	void	*collection_image5;
+	void	*collection_image6;
+
 	void	*character_image;
+	void	*character_image1;
+	void	*character_image2;
+	void	*character_image3;
+	void	*character_image4;
+	void	*character_image5;
+	void	*character_image6;
+	void	*character_image7;
+	void	*character_image8;
+
 	void	*enemy_image;
+	void	*enemy_image1;
+	void	*enemy_image2;
+	void	*enemy_image3;
+	void	*enemy_image4;
+	void	*enemy_image5;
+	void	*enemy_image6;
+	void	*enemy_image7;
+	void	*enemy_image8;
+
 	void	*exit_image;
 	void	*background_image;	
 }	t_image;
@@ -24,6 +62,7 @@ typedef struct s_position_player
 {
 	int	player_x;
 	int	player_y;
+	int count;
 }	t_position_player;
 
 typedef struct s_mlx
@@ -35,6 +74,7 @@ typedef struct s_mlx
 typedef struct s_prog
 {
 	char				**map;
+	char				*map_name;
 	char				**fake_map;
 	int					map_x;
 	int					map_y;
@@ -42,7 +82,7 @@ typedef struct s_prog
 	t_mlx				*mlx;
 	t_image				*image;
 	t_position_player	*player;
-	t_position_exit		*exit;	
+	t_position_exit		*exit;
 }	t_prog;
 
 void	init_prog(t_prog *prog);
@@ -74,3 +114,19 @@ void	add_null(t_prog *prog);
 void	free_all(t_prog *prog, int condition);
 void	free_map(t_prog *prog);
 int		x_button(void *param);
+void	init_person_image(t_prog *prog);
+void	init_enemy_image(t_prog *prog);
+void	init_collectible_image(t_prog *prog);
+void 	condition_person_image(t_prog *prog, int count);
+void 	condition_enemy_image(t_prog *prog, int count);
+void 	condition_collect_image(t_prog *prog, int count);
+int 	hook_func(void *param);
+void	destroy_person_image(t_prog *prog);
+void	destroy_enemy_image(t_prog *prog);
+void	destroy_collect_image(t_prog *prog);
+
+
+
+
+
+

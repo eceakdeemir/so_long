@@ -24,6 +24,7 @@ void	count_map_x_y(char **map, t_prog *prog)
 	i = 0;
 	while (map[i])
 	{
+
 		j = 0;
 		while (map[i][j])
 			j++;

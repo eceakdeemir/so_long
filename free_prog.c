@@ -1,5 +1,6 @@
 #include "so_long.h"
 
+
 void	free_map(t_prog *prog)
 {
 	int	i;
@@ -20,7 +21,6 @@ void	free_all(t_prog *prog, int condition)
 	if (condition >= 2)
 	{
 		destroy_image(prog);
-		mlx_clear_window(prog->mlx->mlx, prog->mlx->mlx_window);
 		mlx_destroy_window(prog->mlx->mlx, prog->mlx->mlx_window);
 		mlx_destroy_display(prog->mlx->mlx);
 		free(prog->mlx->mlx);
@@ -31,12 +31,12 @@ void	free_all(t_prog *prog, int condition)
 		free(prog->player);
 		free(prog->exit);
 		free(prog->mlx);
+		free(prog->map_name);
 		if (prog->map)
 			free_map(prog);
 	}
 	free(prog);
 }
-
 int	x_button(void *param)
 {
 	t_prog	*program;

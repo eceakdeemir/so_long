@@ -1,11 +1,12 @@
 #include "so_long.h"
 
+
 static void	add_null_image(t_prog *prog)
 {
-	prog->image->wall_image = NULL;
-	prog->image->collection_image = NULL;
 	prog->image->character_image = NULL;
+	prog->image->collection_image = NULL;
 	prog->image->enemy_image = NULL;
+	prog->image->wall_image = NULL;
 	prog->image->exit_image = NULL;
 	prog->image->background_image = NULL;
 }
@@ -31,7 +32,11 @@ void	init_prog(t_prog *prog)
 		free_all(prog, 1);
 		exit(1);
 	}
+	prog->player->count = 0;
 	add_null_image(prog);
+	// prog->mlx->mlx_window = malloc(sizeof(void *));
+	// prog->mlx->mlx = NULL;
+
 }
 
 int	map_manage(t_prog *prog)
@@ -39,17 +44,17 @@ int	map_manage(t_prog *prog)
 	int	ctrl;
 
 	ctrl = 1;
-	prog->map = map_read("map.txt");
+	prog->map = map_read(prog->map_name);
 	if (!prog->map)
 		free_all(prog, 1);
-	prog->fake_map = map_read("map.txt");
+	prog->fake_map = map_read(prog->map_name);
 	if (!prog->fake_map)
 		free_all(prog, 1);
 	count_map_x_y(prog->map, prog);
 	prog->count_collect = counter_check_map(prog, 'C');
 	find_exit_position(prog);
 	find_character_position(prog);
-	map_is_true(prog, "map.txt");
+	map_is_true(prog, prog->map_name);
 }
 
 int	mlx_manage(t_prog *prog)
@@ -62,5 +67,8 @@ int	mlx_manage(t_prog *prog)
 	}
 	prog->mlx->mlx_window = mlx_new_window(prog->mlx->mlx, prog->map_x * 64, prog->map_y * 64, "So_Long");
 	if (!prog->mlx->mlx_window)
+	{
 		mlx_destroy_window(prog->mlx->mlx, prog->mlx->mlx_window);
+		free_all(prog, 1);
+	}
 }
