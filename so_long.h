@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:17:04 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/24 14:40:56 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:46:48 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,9 +124,3 @@ int 	hook_func(void *param);
 void	destroy_person_image(t_prog *prog);
 void	destroy_enemy_image(t_prog *prog);
 void	destroy_collect_image(t_prog *prog);
-
-
-
-
-
-

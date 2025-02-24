@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   actions.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/24 14:45:46 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/02/24 14:51:04 by ecakdemi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	move_right(t_prog *prog, char **map)
@@ -5,16 +17,18 @@ void	move_right(t_prog *prog, char **map)
 	prog->count_collect = counter_check_map(prog, 'C');
 	if (map[prog->player->player_y][prog->player->player_x + 1] != '1')
 	{
-		prog->player->count++;
-		printf("Step Count: %d\n", prog->player->count);
 		if (map[prog->player->player_y][prog->player->player_x + 1] == 'E'
 			&& prog->count_collect == 0)
 		{
+			prog->player->count++;
+			printf("Step Count: %d\n", prog->player->count);
 			free_all(prog, 2);
 			exit(1);
 		}
 		if (map[prog->player->player_y][prog->player->player_x + 1] != 'E')
 		{
+			prog->player->count++;
+			printf("Step Count: %d\n", prog->player->count);
 			if (map[prog->player->player_y][prog->player->player_x + 1] == 'X')
 			{
 				free_all(prog, 2);
@@ -31,16 +45,18 @@ void	move_left(t_prog *prog, char **map)
 	prog->count_collect = counter_check_map(prog, 'C');
 	if (map[prog->player->player_y][prog->player->player_x - 1] != '1')
 	{
-		prog->player->count++;
-		printf("Step Count: %d\n", prog->player->count);
 		if (map[prog->player->player_y][prog->player->player_x - 1] == 'E'
 			&& prog->count_collect == 0)
 		{
+			prog->player->count++;
+			printf("Step Count: %d\n", prog->player->count);
 			free_all(prog, 2);
 			exit(1);
 		}
 		if (map[prog->player->player_y][prog->player->player_x - 1] != 'E')
 		{
+			prog->player->count++;
+			printf("Step Count: %d\n", prog->player->count);
 			if (map[prog->player->player_y][prog->player->player_x - 1] == 'X')
 			{
 				free_all(prog, 2);
@@ -57,16 +73,18 @@ void	move_down(t_prog *prog, char **map)
 	prog->count_collect = counter_check_map(prog, 'C');
 	if (map[prog->player->player_y + 1][prog->player->player_x] != '1')
 	{
-		prog->player->count++;
-		printf("Step Count: %d\n", prog->player->count);
 		if (map[prog->player->player_y + 1][prog->player->player_x] == 'E'
 			&& prog->count_collect == 0)
 		{
+			prog->player->count++;
+			printf("Step Count: %d\n", prog->player->count);
 			free_all(prog, 2);
 			exit(1);
 		}
 		if (map[prog->player->player_y + 1][prog->player->player_x] != 'E')
 		{
+			prog->player->count++;
+			printf("Step Count: %d\n", prog->player->count);
 			if (map[prog->player->player_y + 1][prog->player->player_x] == 'X')
 			{
 				free_all(prog, 2);
@@ -83,16 +101,18 @@ void	move_up(t_prog *prog, char **map)
 	prog->count_collect = counter_check_map(prog, 'C');
 	if (map[prog->player->player_y - 1][prog->player->player_x] != '1')
 	{
-		prog->player->count++;
-		printf("Step Count: %d\n", prog->player->count);
 		if (map[prog->player->player_y - 1][prog->player->player_x] == 'E'
 			&& prog->count_collect == 0)
 		{
+			prog->player->count++;
+			printf("Step Count: %d\n", prog->player->count);
 			free_all(prog, 2);
 			exit(1);
 		}
 		if (map[prog->player->player_y - 1][prog->player->player_x] != 'E')
 		{
+			prog->player->count++;
+			printf("Step Count: %d\n", prog->player->count);
 			if (map[prog->player->player_y - 1][prog->player->player_x] == 'X')
 			{
 				free_all(prog, 2);

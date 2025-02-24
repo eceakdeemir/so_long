@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_prog.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/24 14:46:00 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/02/24 14:47:03 by ecakdemi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 
@@ -34,9 +46,6 @@ void	init_prog(t_prog *prog)
 	}
 	prog->player->count = 0;
 	add_null_image(prog);
-	// prog->mlx->mlx_window = malloc(sizeof(void *));
-	// prog->mlx->mlx = NULL;
-
 }
 
 int	map_manage(t_prog *prog, char *map_name)
