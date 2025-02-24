@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:00 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/24 14:47:03 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:48:14 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	init_prog(t_prog *prog)
 	add_null_image(prog);
 }
 
-int	map_manage(t_prog *prog, char *map_name)
+void	map_manage(t_prog *prog, char *map_name)
 {
 	int	ctrl;
 
@@ -71,8 +71,7 @@ int	map_manage(t_prog *prog, char *map_name)
 	map_is_true(prog, prog->map_name);
 }
 
-
-int	mlx_manage(t_prog *prog)
+void	mlx_manage(t_prog *prog)
 {
 	prog->mlx->mlx = mlx_init();
 	if (!prog->mlx->mlx)

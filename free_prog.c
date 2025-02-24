@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:45:55 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/24 14:45:56 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/02/24 19:28:56 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	free_all(t_prog *prog, int condition)
 			free_map(prog);
 	}
 	free(prog);
+	exit(3);
 }
 int	x_button(void *param)
 {

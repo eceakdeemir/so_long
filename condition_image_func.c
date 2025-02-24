@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:16:56 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/20 16:42:42 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/02/24 16:15:06 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	condition_image(char **map, t_prog *prog)
 	int	j;
 
 	i = 0;
-	// mlx_clear_window(prog->mlx->mlx, prog->mlx->mlx_window);
 	while (map[i])
 	{
 		j = 0;

@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:17:04 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/24 14:46:48 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/02/24 16:18:30 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "mlx_linux/mlx.h"
 #include "Get_next_line-main/get_next_line.h"
 #include <fcntl.h>
+#include "printf.h"
 
 typedef struct s_image
 {
@@ -86,8 +87,8 @@ typedef struct s_prog
 }	t_prog;
 
 void	init_prog(t_prog *prog);
-int		map_manage(t_prog *prog, char *map_name);
-int		mlx_manage(t_prog *prog);
+void	map_manage(t_prog *prog, char *map_name);
+void	mlx_manage(t_prog *prog);
 int		flood_fill(t_prog *prog, int x, int y);
 void	count_map_x_y(char **map, t_prog *prog);
 char	**map_read(char *map_name);
@@ -124,3 +125,4 @@ int 	hook_func(void *param);
 void	destroy_person_image(t_prog *prog);
 void	destroy_enemy_image(t_prog *prog);
 void	destroy_collect_image(t_prog *prog);
+void	map_read_helper(char *map_name, char **map);

@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:09 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/24 14:46:10 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/02/24 19:27:44 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	flood_fill(t_prog *prog, int x, int y)
 {
 	if (x < 0 || x >= prog->map_x || y < 0 || y >= prog->map_y)
 		return (0);
-	if (prog->fake_map[y][x] == '1' || prog->fake_map[y][x] == 'A')
+	if (prog->fake_map[y][x] == '1' || prog->fake_map[y][x] == 'A' || prog->fake_map[y][x] == 'X')
 		return (0);
 	if (prog->fake_map[y][x] == 'E')
 		return (1);
@@ -36,7 +36,6 @@ void	count_map_x_y(char **map, t_prog *prog)
 	i = 0;
 	while (map[i])
 	{
-
 		j = 0;
 		while (map[i][j])
 			j++;
@@ -44,6 +43,23 @@ void	count_map_x_y(char **map, t_prog *prog)
 	}
 	prog->map_x = ft_strlen(map[0]) - 1;
 	prog->map_y = i;
+}
+
+void	map_read_helper(char *map_name, char **map)
+{
+	int	fd;
+	int	i;
+
+	fd = open(map_name, O_RDONLY);
+	i = 0;
+	map[i] = get_next_line(fd);
+	while (map[i])
+	{
+		i++;
+		map[i] = get_next_line(fd);
+	}
+	map[i] = NULL;
+	close(fd);
 }
 
 char	**map_read(char *map_name)
@@ -55,12 +71,14 @@ char	**map_read(char *map_name)
 
 	i = 0;
 	fd = open(map_name, O_RDONLY);
-	if (!fd)
+	if (fd <= 0)
 		return (NULL);
-	while (line = get_next_line(fd))
+	line = get_next_line(fd);
+	while (line)
 	{
 		free(line);
 		i++;
+		line = get_next_line(fd);
 	}
 	map = malloc(sizeof(char *) * (i + 1));
 	if (!map)
@@ -68,16 +86,7 @@ char	**map_read(char *map_name)
 		free(map);
 		return (NULL);
 	}
-	map[i] = NULL;
 	close(fd);
-	fd = open(map_name, O_RDONLY);
-	i = 0;
-	map[i] = get_next_line(fd);
-	while (map[i])
-	{
-		i++;
-		map[i] = get_next_line(fd);
-	}
-	close(fd);
+	map_read_helper(map_name, map);
 	return (map);
 }

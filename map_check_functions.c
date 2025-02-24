@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:03 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/24 14:46:04 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/02/24 19:30:02 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	map_name_check(char *map_name)
 
 	i = 0;
 	i = ft_strlen(map_name);
-	if (i < 4)
+	if (i <= 4)
 		return (0);
 	if (map_name[i - 4] != '.' || map_name[i - 3] != 'b'
 		|| map_name[i - 2] != 'e' || map_name[i - 1] != 'r')
