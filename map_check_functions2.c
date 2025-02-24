@@ -75,9 +75,8 @@ void	map_is_true(t_prog *prog, char *map_name)
 
 	player_x = prog->player->player_x;
 	player_y = prog->player->player_y;
-	if (!(map_name_check(map_name) && is_map_line_one(prog)
-			&& is_map_rectangular(prog) && map_control(prog)
-			&& flood_fill(prog, player_x, player_y)))
+	if (!(is_map_line_one(prog) && is_map_rectangular(prog) 
+		&& map_control(prog) && flood_fill(prog, player_x, player_y)))
 	{
 		free_all(prog, 1);
 		exit(1);

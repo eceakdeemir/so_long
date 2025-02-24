@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:16:59 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/20 15:28:58 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:42:16 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 	program->map_name = ft_strdup(av[1]);
 	add_null(program);
 	init_prog(program);
-	map_manage(program);
+	map_manage(program, program->map_name);
 	mlx_manage(program);
 	init_image(program);
 	condition_image(program->map, program);

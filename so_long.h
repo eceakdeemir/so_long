@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:17:04 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/20 16:49:40 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:40:56 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ typedef struct s_prog
 }	t_prog;
 
 void	init_prog(t_prog *prog);
-int		map_manage(t_prog *prog);
+int		map_manage(t_prog *prog, char *map_name);
 int		mlx_manage(t_prog *prog);
 int		flood_fill(t_prog *prog, int x, int y);
 void	count_map_x_y(char **map, t_prog *prog);

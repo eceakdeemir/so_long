@@ -39,11 +39,16 @@ void	init_prog(t_prog *prog)
 
 }
 
-int	map_manage(t_prog *prog)
+int	map_manage(t_prog *prog, char *map_name)
 {
 	int	ctrl;
 
 	ctrl = 1;
+	if (map_name_check(map_name) == 0)
+	{
+		free_all(prog, 1);
+		exit(1);
+	}
 	prog->map = map_read(prog->map_name);
 	if (!prog->map)
 		free_all(prog, 1);
@@ -56,6 +61,7 @@ int	map_manage(t_prog *prog)
 	find_character_position(prog);
 	map_is_true(prog, prog->map_name);
 }
+
 
 int	mlx_manage(t_prog *prog)
 {
