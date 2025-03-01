@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igurses <igurses@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:52:17 by igurses           #+#    #+#             */
-/*   Updated: 2025/02/07 15:15:15 by igurses          ###   ########.fr       */
+/*   Updated: 2025/03/01 16:04:26 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_strchr(char *str, char a)
 	return (-1);
 }
 
-int	ft_strlen(char const *str)
+int	ft_strlen_gnl(char const *str)
 {
 	int	i;
 
@@ -47,7 +47,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (!s)
 		return (0);
-	s_len = ft_strlen(s);
+	s_len = ft_strlen_gnl(s);
 	if (s_len <= start)
 		return (ft_strdup(""));
 	if (start + len > s_len)
@@ -71,7 +71,7 @@ char	*ft_strdup(const char *s1)
 	int		i;
 
 	i = 0;
-	len = ft_strlen(s1);
+	len = ft_strlen_gnl(s1);
 	str = malloc(len + 1);
 	if (!str)
 		return (NULL);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igurses <igurses@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:52:26 by igurses           #+#    #+#             */
-/*   Updated: 2025/02/03 15:52:31 by igurses          ###   ########.fr       */
+/*   Updated: 2025/03/01 16:04:09 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ char	*remove_line(char *buffer, char *line)
 	char	*tmp;
 	int		len;
 
-	len = ft_strlen(line);
-	tmp = ft_substr(buffer, len, ft_strlen(buffer) - len);
+	len = ft_strlen_gnl(line);
+	tmp = ft_substr(buffer, len, ft_strlen_gnl(buffer) - len);
 	free(buffer);
 	return (tmp);
 }
@@ -31,8 +31,8 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	if (!s1 || !s2)
 		return (0);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
+	len1 = ft_strlen_gnl(s1);
+	len2 = ft_strlen_gnl(s2);
 	result = (char *)malloc(len1 + len2 + 1);
 	if (!result)
 		return (0);
@@ -84,7 +84,7 @@ char	*read_and_fill_line(int fd, char **buffer)
 	}
 	i = ft_strchr(*buffer, '\n');
 	if (i == -1)
-		i = ft_strlen(*buffer);
+		i = ft_strlen_gnl(*buffer);
 	if ((*buffer)[i] == '\n')
 		i++;
 	line = ft_substr(*buffer, 0, i);

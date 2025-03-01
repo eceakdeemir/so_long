@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:16:59 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/24 14:42:16 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/01 15:25:37 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ int	main(int ac, char **av)
 	map_manage(program, program->map_name);
 	mlx_manage(program);
 	init_image(program);
-	condition_image(program->map, program);
+	condition_image(program->map, program->mlx->mlx, program,
+		program->mlx->mlx_window);
 	mlx_key_hook(program->mlx->mlx_window, keycode_actions, program);
-	mlx_loop_hook(program->mlx->mlx, hook_func, (void*)program);
+	mlx_loop_hook(program->mlx->mlx, hook_func, (void *)program);
 	mlx_hook(program->mlx->mlx_window, 17, 0, x_button, program);
 	mlx_loop(program->mlx->mlx);
 }

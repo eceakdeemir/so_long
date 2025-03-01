@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "format": "c"
-    }
+        "*.c": "c"
+    },
+    "[c]": {
+        "editor.defaultFormatter": "keyhr.42-c-format"
+    },
 }

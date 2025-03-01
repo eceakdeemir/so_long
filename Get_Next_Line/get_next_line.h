@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igurses <igurses@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:52:39 by igurses           #+#    #+#             */
-/*   Updated: 2025/02/03 15:52:41 by igurses          ###   ########.fr       */
+/*   Updated: 2025/03/01 16:20:27 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # endif
 
 int		ft_strchr(char *str, char a);
-int		ft_strlen(char const *str);
+int		ft_strlen_gnl(char const *str);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 char	*ft_strjoin(char *s1, char *s2);
 char	*remove_line(char *buffer, char *line);

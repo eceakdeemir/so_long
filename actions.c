@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:45:46 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/24 19:32:19 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/01 15:59:07 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	move_right(t_prog *prog, char **map)
 			&& prog->count_collect == 0)
 		{
 			prog->player->count++;
-			printf("Step Count: %d\n", prog->player->count);
+			ft_printf("Step Count: %d\n", prog->player->count);
 			free_all(prog, 2);
 		}
 		if (map[prog->player->player_y][prog->player->player_x + 1] != 'E')
 		{
 			prog->player->count++;
-			printf("Step Count: %d\n", prog->player->count);
+			ft_printf("Step Count: %d\n", prog->player->count);
 			if (map[prog->player->player_y][prog->player->player_x + 1] == 'X')
 				free_all(prog, 2);
 			map[prog->player->player_y][prog->player->player_x + 1] = 'P';
@@ -45,13 +45,13 @@ void	move_left(t_prog *prog, char **map)
 			&& prog->count_collect == 0)
 		{
 			prog->player->count++;
-			printf("Step Count: %d\n", prog->player->count);
+			ft_printf("Step Count: %d\n", prog->player->count);
 			free_all(prog, 2);
 		}
 		if (map[prog->player->player_y][prog->player->player_x - 1] != 'E')
 		{
 			prog->player->count++;
-			printf("Step Count: %d\n", prog->player->count);
+			ft_printf("Step Count: %d\n", prog->player->count);
 			if (map[prog->player->player_y][prog->player->player_x - 1] == 'X')
 				free_all(prog, 2);
 			map[prog->player->player_y][prog->player->player_x - 1] = 'P';
@@ -69,13 +69,13 @@ void	move_down(t_prog *prog, char **map)
 			&& prog->count_collect == 0)
 		{
 			prog->player->count++;
-			printf("Step Count: %d\n", prog->player->count);
+			ft_printf("Step Count: %d\n", prog->player->count);
 			free_all(prog, 2);
 		}
 		if (map[prog->player->player_y + 1][prog->player->player_x] != 'E')
 		{
 			prog->player->count++;
-			printf("Step Count: %d\n", prog->player->count);
+			ft_printf("Step Count: %d\n", prog->player->count);
 			if (map[prog->player->player_y + 1][prog->player->player_x] == 'X')
 				free_all(prog, 2);
 			map[prog->player->player_y + 1][prog->player->player_x] = 'P';
@@ -93,13 +93,13 @@ void	move_up(t_prog *prog, char **map)
 			&& prog->count_collect == 0)
 		{
 			prog->player->count++;
-			printf("Step Count: %d\n", prog->player->count);
+			ft_printf("Step Count: %d\n", prog->player->count);
 			free_all(prog, 2);
 		}
 		if (map[prog->player->player_y - 1][prog->player->player_x] != 'E')
 		{
 			prog->player->count++;
-			printf("Step Count: %d\n", prog->player->count);
+			ft_printf("Step Count: %d\n", prog->player->count);
 			if (map[prog->player->player_y - 1][prog->player->player_x] == 'X')
 				free_all(prog, 2);
 			map[prog->player->player_y - 1][prog->player->player_x] = 'P';

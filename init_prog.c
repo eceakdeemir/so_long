@@ -6,12 +6,11 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:00 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/24 15:48:14 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:28:42 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 static void	add_null_image(t_prog *prog)
 {
@@ -79,7 +78,8 @@ void	mlx_manage(t_prog *prog)
 		mlx_destroy_display(prog->mlx->mlx);
 		free_all(prog, 1);
 	}
-	prog->mlx->mlx_window = mlx_new_window(prog->mlx->mlx, prog->map_x * 64, prog->map_y * 64, "So_Long");
+	prog->mlx->mlx_window = mlx_new_window(prog->mlx->mlx,
+			prog->map_x * 64, prog->map_y * 64, "So_Long");
 	if (!prog->mlx->mlx_window)
 	{
 		mlx_destroy_window(prog->mlx->mlx, prog->mlx->mlx_window);

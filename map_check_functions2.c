@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:06 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/24 14:46:07 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/01 15:38:37 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ void	map_is_true(t_prog *prog, char *map_name)
 
 	player_x = prog->player->player_x;
 	player_y = prog->player->player_y;
-	if (!(is_map_line_one(prog) && is_map_rectangular(prog) 
-		&& map_control(prog) && flood_fill(prog, player_x, player_y)))
+	if (!(is_map_line_one(prog) && is_map_rectangular(prog)
+			&& map_control(prog) && flood_fill(prog, player_x, player_y)))
 	{
 		free_all(prog, 1);
 		exit(1);
@@ -98,4 +98,23 @@ void	map_is_true(t_prog *prog, char *map_name)
 		free_all(prog, 1);
 		exit(1);
 	}
+}
+
+int	hook_func(void *param)
+{
+	t_prog		*prog;
+	static int	i;
+
+	prog = (t_prog *)param;
+	if (i != 800)
+	{
+		condition_person_image(prog, i);
+		condition_enemy_image(prog, i);
+		condition_collect_image(prog, i);
+	}
+	else
+		i = 0;
+	i++;
+	condition_image(prog->map, prog->mlx->mlx, prog, prog->mlx->mlx_window);
+	return (0);
 }

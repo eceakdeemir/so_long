@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:09 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/24 19:27:44 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/01 15:38:52 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	flood_fill(t_prog *prog, int x, int y)
 {
 	if (x < 0 || x >= prog->map_x || y < 0 || y >= prog->map_y)
 		return (0);
-	if (prog->fake_map[y][x] == '1' || prog->fake_map[y][x] == 'A' || prog->fake_map[y][x] == 'X')
+	if (prog->fake_map[y][x] == '1' ||
+		prog->fake_map[y][x] == 'A' || prog->fake_map[y][x] == 'X')
 		return (0);
 	if (prog->fake_map[y][x] == 'E')
 		return (1);

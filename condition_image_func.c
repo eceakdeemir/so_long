@@ -6,32 +6,13 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:16:56 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/02/24 16:15:06 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/01 15:32:55 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int hook_func(void *param)
-{
-	t_prog *prog;
-	prog = (t_prog*)param;
-	static int i;
-
-	if (i != 800)
-	{
-		condition_person_image(prog, i);
-		condition_enemy_image(prog, i);
-		condition_collect_image(prog, i);
-	}
-	else
-		i = 0;
-	i++;
-	condition_image(prog->map, prog);
-	return (0);
-}
-
-void condition_person_image(t_prog *prog, int count)
+void	condition_person_image(t_prog *prog, int count)
 {
 	if (prog->image->character_image == NULL || count == 799)
 		prog->image->character_image = prog->image->character_image8;
@@ -50,7 +31,8 @@ void condition_person_image(t_prog *prog, int count)
 	if (count == 700)
 		prog->image->character_image = prog->image->character_image7;
 }
-void condition_enemy_image(t_prog *prog, int count)
+
+void	condition_enemy_image(t_prog *prog, int count)
 {
 	if (prog->image->enemy_image == NULL || count == 799)
 		prog->image->enemy_image = prog->image->enemy_image8;
@@ -70,7 +52,7 @@ void condition_enemy_image(t_prog *prog, int count)
 		prog->image->enemy_image = prog->image->enemy_image7;
 }
 
-void condition_collect_image(t_prog *prog, int count)
+void	condition_collect_image(t_prog *prog, int count)
 {
 	if (prog->image->collection_image == NULL || count == 799)
 		prog->image->collection_image = prog->image->collection_image6;
@@ -86,7 +68,7 @@ void condition_collect_image(t_prog *prog, int count)
 		prog->image->collection_image = prog->image->collection_image5;
 }
 
-void	condition_image(char **map, t_prog *prog)
+void	condition_image(char **map, void *mlx, t_prog *prog, void *wn)
 {
 	int	i;
 	int	j;
@@ -97,20 +79,36 @@ void	condition_image(char **map, t_prog *prog)
 		j = 0;
 		while (map[i][j] && map[i][j] != '\n')
 		{
-			if (map[i][j] == '0')
-				mlx_put_image_to_window(prog->mlx->mlx, prog->mlx->mlx_window, prog->image->background_image, j * 64, i * 64);
-			if (map[i][j] == '1')
-				mlx_put_image_to_window(prog->mlx->mlx, prog->mlx->mlx_window, prog->image->wall_image, j * 64, i * 64);
-			if (map[i][j] == 'P')
-				mlx_put_image_to_window(prog->mlx->mlx, prog->mlx->mlx_window, prog->image->character_image, j * 64, i * 64);
-			if (map[i][j] == 'E')
-				mlx_put_image_to_window(prog->mlx->mlx, prog->mlx->mlx_window, prog->image->exit_image, j * 64, i * 64);
-			if (map[i][j] == 'C')
-				mlx_put_image_to_window(prog->mlx->mlx, prog->mlx->mlx_window, prog->image->collection_image, j * 64, i * 64);
-			if (map[i][j] == 'X')
-				mlx_put_image_to_window(prog->mlx->mlx, prog->mlx->mlx_window, prog->image->enemy_image, j * 64, i * 64);
+			condition_image_helper(prog, map, i, j);
 			j++;
 		}
 		i++;
 	}
+}
+
+void	condition_image_helper(t_prog *prog, char **map, int i, int j)
+{
+	void	*mlx;
+	void	*window;
+
+	mlx = prog->mlx->mlx;
+	window = prog->mlx->mlx_window;
+	if (map[i][j] == '0')
+		mlx_put_image_to_window(mlx, window,
+			prog->image->background_image, j * 64, i * 64);
+	if (map[i][j] == '1')
+		mlx_put_image_to_window(mlx, window,
+			prog->image->wall_image, j * 64, i * 64);
+	if (map[i][j] == 'P')
+		mlx_put_image_to_window(mlx, window,
+			prog->image->character_image, j * 64, i * 64);
+	if (map[i][j] == 'E')
+		mlx_put_image_to_window(mlx, window,
+			prog->image->exit_image, j * 64, i * 64);
+	if (map[i][j] == 'C')
+		mlx_put_image_to_window(mlx, window,
+			prog->image->collection_image, j * 64, i * 64);
+	if (map[i][j] == 'X')
+		mlx_put_image_to_window(mlx, window,
+			prog->image->enemy_image, j * 64, i * 64);
 }
