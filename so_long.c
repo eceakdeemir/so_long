@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:16:59 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/01 15:25:37 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:52:29 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		printf("ERROR\n");
+		ft_printf("ERROR\n");
 		return (1);
 	}
 	program = malloc(sizeof(t_prog));

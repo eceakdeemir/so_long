@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:06 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/01 15:38:37 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:59:34 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,16 +88,10 @@ void	map_is_true(t_prog *prog, char *map_name)
 	player_x = prog->player->player_x;
 	player_y = prog->player->player_y;
 	if (!(is_map_line_one(prog) && is_map_rectangular(prog)
-			&& map_control(prog) && flood_fill(prog, player_x, player_y)))
-	{
+			&& map_control(prog) && check_number_error(prog)))
 		free_all(prog, 1);
-		exit(1);
-	}
-	if (check_number_error(prog) != 1)
-	{
+	if (!flood_fill(prog, player_x, player_y))
 		free_all(prog, 1);
-		exit(1);
-	}
 }
 
 int	hook_func(void *param)
