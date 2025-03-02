@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:17:04 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/01 16:14:36 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:01:47 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int		check_exit(t_prog *prog);
 int		counter_check_map(t_prog *prog, char a);
 int		counter_check_fake_map(t_prog *prog, char a);
 int		map_control(t_prog *prog);
+char	*ft_itoa(int n);
 void	map_is_true(t_prog *prog, char *map_name);
 void	init_image(t_prog *prog);
 void	condition_image(char **map, void *mlx, t_prog *prog, void *wn);

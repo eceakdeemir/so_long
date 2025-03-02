@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:03 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/01 17:00:24 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/02 13:10:37 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int	map_name_check(char *map_name)
 		return (0);
 	if (map_name[i - 4] != '.' || map_name[i - 3] != 'b'
 		|| map_name[i - 2] != 'e' || map_name[i - 1] != 'r')
+	{
+		ft_printf("ERROR: map name is not correct\n");
 		return (0);
+	}
 	return (1);
 }
 

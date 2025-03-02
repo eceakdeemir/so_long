@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:16:56 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/01 15:32:55 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:16:06 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,10 @@ void	condition_image(char **map, void *mlx, t_prog *prog, void *wn)
 		while (map[i][j] && map[i][j] != '\n')
 		{
 			condition_image_helper(prog, map, i, j);
+			mlx_string_put(prog->mlx->mlx, prog->mlx->mlx_window, 0, 10,
+				328965, "STEP COUNT: ");
+			mlx_string_put(prog->mlx->mlx, prog->mlx->mlx_window, 75, 10,
+				328965, ft_itoa(prog->player->count));
 			j++;
 		}
 		i++;

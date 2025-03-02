@@ -9,7 +9,7 @@ OBJ_PRINTF = printf/ft_writes.c printf/ft_numbers.c printf/ft_hexedecimal.c prin
 OBJ_GNL = Get_Next_Line/get_next_line.c Get_Next_Line/get_next_line_utils.c 
 
 OBJ_SL = so_long.c actions.c find_positions.c condition_image_func.c init_prog.c map_check_functions.c map_check_functions2.c \
-	map_functions.c free_prog.c destroy_images.c init_images.c
+	map_functions.c free_prog.c destroy_images.c init_images.c ft_itoa.c
 
 all: $(NAME)
 	

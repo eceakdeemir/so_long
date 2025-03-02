@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:09 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/01 16:52:13 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/02 13:26:47 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ void	map_read_helper(char *map_name, char **map)
 	int	i;
 
 	fd = open(map_name, O_RDONLY);
+	if (fd <= 0)
+	{
+		ft_printf("ERROR: map can't open\n");
+		exit(1);
+	}
 	i = 0;
 	map[i] = get_next_line(fd);
 	while (map[i])
@@ -73,7 +78,7 @@ char	**map_read(char *map_name)
 	i = 0;
 	fd = open(map_name, O_RDONLY);
 	if (fd <= 0)
-		return (NULL);
+		map_read_helper(map_name, map);
 	line = get_next_line(fd);
 	while (line)
 	{

@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:45:46 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/01 16:33:04 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/02 13:52:49 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	move_right(t_prog *prog, char **map)
 		{
 			prog->player->count++;
 			ft_printf("Step Count: %d\n", prog->player->count);
+			ft_printf("YOU WON THE GAME!\n");
 			free_all(prog, 2);
 		}
 		if (map[prog->player->player_y][prog->player->player_x + 1] != 'E')
@@ -29,7 +30,10 @@ void	move_right(t_prog *prog, char **map)
 			prog->player->count++;
 			ft_printf("Step Count: %d\n", prog->player->count);
 			if (map[prog->player->player_y][prog->player->player_x + 1] == 'X')
+			{
+				ft_printf("YOU LOSE!\n");
 				free_all(prog, 2);
+			}
 			map[prog->player->player_y][prog->player->player_x + 1] = 'P';
 			map[prog->player->player_y][prog->player->player_x] = '0';
 		}
@@ -46,6 +50,7 @@ void	move_left(t_prog *prog, char **map)
 		{
 			prog->player->count++;
 			ft_printf("Step Count: %d\n", prog->player->count);
+			ft_printf("YOU WON THE GAME!\n");
 			free_all(prog, 2);
 		}
 		if (map[prog->player->player_y][prog->player->player_x - 1] != 'E')
@@ -53,7 +58,10 @@ void	move_left(t_prog *prog, char **map)
 			prog->player->count++;
 			ft_printf("Step Count: %d\n", prog->player->count);
 			if (map[prog->player->player_y][prog->player->player_x - 1] == 'X')
+			{
+				ft_printf("YOU LOSE!\n");
 				free_all(prog, 2);
+			}
 			map[prog->player->player_y][prog->player->player_x - 1] = 'P';
 			map[prog->player->player_y][prog->player->player_x] = '0';
 		}
@@ -70,6 +78,7 @@ void	move_down(t_prog *prog, char **map)
 		{
 			prog->player->count++;
 			ft_printf("Step Count: %d\n", prog->player->count);
+			ft_printf("YOU WON THE GAME!\n");
 			free_all(prog, 2);
 		}
 		if (map[prog->player->player_y + 1][prog->player->player_x] != 'E')
@@ -77,7 +86,10 @@ void	move_down(t_prog *prog, char **map)
 			prog->player->count++;
 			ft_printf("Step Count: %d\n", prog->player->count);
 			if (map[prog->player->player_y + 1][prog->player->player_x] == 'X')
+			{
+				ft_printf("YOU LOSE!\n");
 				free_all(prog, 2);
+			}
 			map[prog->player->player_y + 1][prog->player->player_x] = 'P';
 			map[prog->player->player_y][prog->player->player_x] = '0';
 		}
@@ -94,6 +106,7 @@ void	move_up(t_prog *prog, char **map)
 		{
 			prog->player->count++;
 			ft_printf("Step Count: %d\n", prog->player->count);
+			ft_printf("YOU WON THE GAME!\n");
 			free_all(prog, 2);
 		}
 		if (map[prog->player->player_y - 1][prog->player->player_x] != 'E')
@@ -101,7 +114,10 @@ void	move_up(t_prog *prog, char **map)
 			prog->player->count++;
 			ft_printf("Step Count: %d\n", prog->player->count);
 			if (map[prog->player->player_y - 1][prog->player->player_x] == 'X')
+			{
+				ft_printf("YOU LOSE!\n");
 				free_all(prog, 2);
+			}
 			map[prog->player->player_y - 1][prog->player->player_x] = 'P';
 			map[prog->player->player_y][prog->player->player_x] = '0';
 		}

@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:06 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/01 16:59:34 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:14:57 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,10 @@ int	map_control(t_prog *prog)
 		{
 			if (!(a[i][j] == '1' || a[i][j] == '0' || a[i][j] == 'E'
 				|| a[i][j] == 'C' || a[i][j] == 'X' || a[i][j] == 'P'))
+			{
+				ft_printf("ERROR: map is not correct\n");
 				return (0);
+			}
 			j++;
 		}
 		i++;
@@ -89,9 +92,15 @@ void	map_is_true(t_prog *prog, char *map_name)
 	player_y = prog->player->player_y;
 	if (!(is_map_line_one(prog) && is_map_rectangular(prog)
 			&& map_control(prog) && check_number_error(prog)))
+	{
+		ft_printf("ERROR: map failed\n");
 		free_all(prog, 1);
+	}
 	if (!flood_fill(prog, player_x, player_y))
+	{
+		ft_printf("ERROR: map failed\n");
 		free_all(prog, 1);
+	}
 }
 
 int	hook_func(void *param)

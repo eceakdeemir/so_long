@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:00 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/01 16:51:54 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/02 13:04:12 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	init_prog(t_prog *prog)
 	prog->exit = malloc(sizeof(t_position_exit));
 	if (!(prog->image && prog->mlx && prog->player && prog->exit))
 	{
+		ft_printf("ERROR: program creation failed\n");
 		free_all(prog, 1);
 		exit(1);
 	}
@@ -55,6 +56,7 @@ void	map_manage(t_prog *prog, char *map_name)
 	if (map_name_check(map_name) == 0)
 	{
 		free_all(prog, 1);
+		ft_printf("ERROR: The map name is not correct\n");
 		exit(1);
 	}
 	prog->map = map_read(prog->map_name);
@@ -83,6 +85,7 @@ void	mlx_manage(t_prog *prog)
 	if (!prog->mlx->mlx_window)
 	{
 		mlx_destroy_window(prog->mlx->mlx, prog->mlx->mlx_window);
+		ft_printf("ERROR: The window creation failed\n");
 		free_all(prog, 1);
 	}
 }

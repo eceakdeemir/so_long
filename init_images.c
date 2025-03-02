@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:02:25 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/01 15:37:36 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/02 12:59:40 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,16 +82,16 @@ void	init_collectible_image(t_prog *prog)
 
 	w = 64;
 	prog->image->collection_image1 = mlx_xpm_file_to_image(prog->mlx->mlx,
-			"xpm/kalp1/c1.xpm", &w, &w);
+			"xpm/heart1/c1.xpm", &w, &w);
 	prog->image->collection_image2 = mlx_xpm_file_to_image(prog->mlx->mlx,
-			"xpm/kalp1/c2.xpm", &w, &w);
+			"xpm/heart1/c2.xpm", &w, &w);
 	prog->image->collection_image3 = mlx_xpm_file_to_image(prog->mlx->mlx,
-			"xpm/kalp1/c3.xpm", &w, &w);
+			"xpm/heart1/c3.xpm", &w, &w);
 	prog->image->collection_image4 = mlx_xpm_file_to_image(prog->mlx->mlx,
-			"xpm/kalp1/c4.xpm", &w, &w);
+			"xpm/heart1/c4.xpm", &w, &w);
 	prog->image->collection_image5 = mlx_xpm_file_to_image(prog->mlx->mlx,
-			"xpm/kalp1/c5.xpm", &w, &w);
+			"xpm/heart1/c5.xpm", &w, &w);
 	prog->image->collection_image6 = mlx_xpm_file_to_image(prog->mlx->mlx,
-			"xpm/kalp1/c6.xpm", &w, &w);
+			"xpm/heart1/c6.xpm", &w, &w);
 	prog->image->collection_image = prog->image->collection_image6;
 }
