@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 14:16:16 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/02 14:16:20 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:52:23 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,28 @@ static int	ft_nums_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+void	ft_itoa(int n, char *count_str)
 {
 	int		len;
 	long	number;
-	char	*result;
+	int		i;
 
+	i = 0;
+	while (count_str[i])
+		count_str[i] = 0;
 	number = n;
 	len = ft_nums_len(n);
-	result = (char *)malloc(sizeof(char) * len + 1);
-	if (!result)
-		return (NULL);
 	if (number == 0)
-		result[0] = '0';
-	result[len] = '\0';
+		count_str[0] = '0';
+	count_str[len] = '\0';
 	if (number < 0)
 	{
-		result[0] = '-';
+		count_str[0] = '-';
 		number *= -1;
 	}
 	while (number > 0)
 	{
-		result[--len] = (number % 10) + '0';
+		count_str[--len] = (number % 10) + '0';
 		number = number / 10;
 	}
-	return (result);
 }

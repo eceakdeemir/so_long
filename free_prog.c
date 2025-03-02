@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:45:55 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/01 15:35:26 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:51:29 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	free_all(t_prog *prog, int condition)
 	if (condition >= 1)
 	{
 		free(prog->image);
+		free(prog->player->count_str);
 		free(prog->player);
 		free(prog->exit);
 		free(prog->mlx);

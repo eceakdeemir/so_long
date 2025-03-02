@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:00 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/02 13:04:12 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:49:10 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ void	init_prog(t_prog *prog)
 	prog->mlx = malloc(sizeof(t_mlx));
 	prog->player = malloc(sizeof(t_position_player));
 	prog->exit = malloc(sizeof(t_position_exit));
+	prog->player->count_str = malloc(sizeof(char) * 12);
+	prog->player->count_str[0] = '0';
+	prog->player->count_str[0] = '\0';
 	if (!(prog->image && prog->mlx && prog->player && prog->exit))
 	{
 		ft_printf("ERROR: program creation failed\n");

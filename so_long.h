@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:17:04 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/02 14:01:47 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:51:55 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,10 @@ typedef struct s_position_exit
 
 typedef struct s_position_player
 {
-	int	player_x;
-	int	player_y;
-	int	count;
+	int		player_x;
+	int		player_y;
+	int		count;
+	char	*count_str;
 }	t_position_player;
 
 typedef struct s_mlx
@@ -92,10 +93,10 @@ int		flood_fill(t_prog *prog, int x, int y);
 void	count_map_x_y(char **map, t_prog *prog);
 char	**map_read(char *map_name);
 int		keycode_actions(int keycode, void *param);
-void	move_up(t_prog *prog, char **map);
-void	move_down(t_prog *prog, char **map);
-void	move_left(t_prog *prog, char **map);
-void	move_right(t_prog *prog, char **map);
+int		move_up(t_prog *prog, char **map);
+int		move_down(t_prog *prog, char **map);
+int		move_left(t_prog *prog, char **map);
+int		move_right(t_prog *prog, char **map);
 void	find_character_position(t_prog *prog);
 void	find_exit_position(t_prog *prog);
 int		map_name_check(char *map_name);
@@ -106,7 +107,7 @@ int		check_exit(t_prog *prog);
 int		counter_check_map(t_prog *prog, char a);
 int		counter_check_fake_map(t_prog *prog, char a);
 int		map_control(t_prog *prog);
-char	*ft_itoa(int n);
+void	ft_itoa(int n, char *count_str);
 void	map_is_true(t_prog *prog, char *map_name);
 void	init_image(t_prog *prog);
 void	condition_image(char **map, void *mlx, t_prog *prog, void *wn);
