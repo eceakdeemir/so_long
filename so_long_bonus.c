@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:16:59 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/14 15:54:27 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/14 14:03:35 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	main(int ac, char **av)
 {
@@ -30,8 +30,8 @@ int	main(int ac, char **av)
 	map_manage(program, program->map_name);
 	mlx_manage(program);
 	init_image(program);
-	condition_image(program->map, program->mlx->mlx,
-		program, program->mlx->mlx_window);
+	condition_image(program->map, program->mlx->mlx, program,
+		program->mlx->mlx_window);
 	mlx_key_hook(program->mlx->mlx_window, keycode_actions, program);
 	mlx_loop_hook(program->mlx->mlx, hook_func, (void *)program);
 	mlx_hook(program->mlx->mlx_window, 17, 0, x_button, program);

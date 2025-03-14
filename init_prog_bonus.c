@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_prog.c                                        :+:      :+:    :+:   */
+/*   init_prog_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:00 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/14 14:04:59 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/14 14:03:13 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static void	add_null_image(t_prog *prog)
 {
 	prog->image->character_image = NULL;
 	prog->image->collection_image = NULL;
+	prog->image->enemy_image = NULL;
 	prog->image->wall_image = NULL;
 	prog->image->exit_image = NULL;
 	prog->image->background_image = NULL;
@@ -37,12 +38,16 @@ void	init_prog(t_prog *prog)
 	prog->mlx = malloc(sizeof(t_mlx));
 	prog->player = malloc(sizeof(t_position_player));
 	prog->exit = malloc(sizeof(t_position_exit));
+	prog->player->count_str = malloc(sizeof(char) * 12);
+	prog->player->count_str[0] = '0';
+	prog->player->count_str[0] = '\0';
 	if (!(prog->image && prog->mlx && prog->player && prog->exit))
 	{
 		ft_printf("ERROR: program creation failed\n");
 		free_all(prog, 1);
 		exit(1);
 	}
+	prog->player->count = 0;
 	add_null_image(prog);
 }
 

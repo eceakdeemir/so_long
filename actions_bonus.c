@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions.c                                          :+:      :+:    :+:   */
+/*   actions_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:45:46 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/14 15:52:08 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:48:15 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	move_right(t_prog *prog, char **map)
 {
@@ -28,6 +28,11 @@ int	move_right(t_prog *prog, char **map)
 		if (map[prog->player->player_y][prog->player->player_x + 1] != 'E')
 		{
 			prog->player->count++;
+			if (map[prog->player->player_y][prog->player->player_x + 1] == 'X')
+			{
+				ft_printf("YOU LOSE!\n");
+				free_all(prog, 2);
+			}
 			map[prog->player->player_y][prog->player->player_x + 1] = 'P';
 			map[prog->player->player_y][prog->player->player_x] = '0';
 			return (1);
@@ -52,6 +57,11 @@ int	move_left(t_prog *prog, char **map)
 		if (map[prog->player->player_y][prog->player->player_x - 1] != 'E')
 		{
 			prog->player->count++;
+			if (map[prog->player->player_y][prog->player->player_x - 1] == 'X')
+			{
+				ft_printf("YOU LOSE!\n");
+				free_all(prog, 2);
+			}
 			map[prog->player->player_y][prog->player->player_x - 1] = 'P';
 			map[prog->player->player_y][prog->player->player_x] = '0';
 			return (1);
@@ -76,6 +86,11 @@ int	move_down(t_prog *prog, char **map)
 		if (map[prog->player->player_y + 1][prog->player->player_x] != 'E')
 		{
 			prog->player->count++;
+			if (map[prog->player->player_y + 1][prog->player->player_x] == 'X')
+			{
+				ft_printf("YOU LOSE!\n");
+				free_all(prog, 2);
+			}
 			map[prog->player->player_y + 1][prog->player->player_x] = 'P';
 			map[prog->player->player_y][prog->player->player_x] = '0';
 			return (1);
@@ -100,6 +115,11 @@ int	move_up(t_prog *prog, char **map)
 		if (map[prog->player->player_y - 1][prog->player->player_x] != 'E')
 		{
 			prog->player->count++;
+			if (map[prog->player->player_y - 1][prog->player->player_x] == 'X')
+			{
+				ft_printf("YOU LOSE!\n");
+				free_all(prog, 2);
+			}
 			map[prog->player->player_y - 1][prog->player->player_x] = 'P';
 			map[prog->player->player_y][prog->player->player_x] = '0';
 			return (1);
@@ -124,6 +144,8 @@ int	keycode_actions(int keycode, void *param)
 		flag += move_down(prog_data, prog_data->map);
 	else if (keycode == 100)
 		flag += move_right(prog_data, prog_data->map);
+	if (flag == 1)
+		ft_itoa(prog_data->player->count, prog_data->player->count_str);
 	if (keycode == 65307)
 		free_all(prog_data, 2);
 	return (0);

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:17:04 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/14 15:55:32 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/14 13:58:22 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <stdlib.h>
 # include "mlx_linux/mlx.h"
@@ -23,7 +23,30 @@ typedef struct s_image
 {
 	void	*wall_image;
 	void	*collection_image;
+	void	*collection_image1;
+	void	*collection_image2;
+	void	*collection_image3;
+	void	*collection_image4;
+	void	*collection_image5;
+	void	*collection_image6;
 	void	*character_image;
+	void	*character_image1;
+	void	*character_image2;
+	void	*character_image3;
+	void	*character_image4;
+	void	*character_image5;
+	void	*character_image6;
+	void	*character_image7;
+	void	*character_image8;
+	void	*enemy_image;
+	void	*enemy_image1;
+	void	*enemy_image2;
+	void	*enemy_image3;
+	void	*enemy_image4;
+	void	*enemy_image5;
+	void	*enemy_image6;
+	void	*enemy_image7;
+	void	*enemy_image8;
 	void	*exit_image;
 	void	*background_image;	
 }	t_image;
@@ -39,6 +62,7 @@ typedef struct s_position_player
 	int		player_x;
 	int		player_y;
 	int		count;
+	char	*count_str;
 }	t_position_player;
 
 typedef struct s_mlx
@@ -98,6 +122,9 @@ void	condition_person_image(t_prog *prog, int count);
 void	condition_enemy_image(t_prog *prog, int count);
 void	condition_collect_image(t_prog *prog, int count);
 int		hook_func(void *param);
+void	destroy_person_image(t_prog *prog);
+void	destroy_enemy_image(t_prog *prog);
+void	destroy_collect_image(t_prog *prog);
 void	map_read_helper(char *map_name, char **map);
 void	condition_image_helper(t_prog *prog, char **map, int i, int j);
 

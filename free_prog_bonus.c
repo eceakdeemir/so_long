@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_prog.c                                        :+:      :+:    :+:   */
+/*   free_prog_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:45:55 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/14 13:41:33 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/14 14:02:56 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	free_map(t_prog *prog)
 {
@@ -39,6 +39,7 @@ void	free_all(t_prog *prog, int condition)
 	if (condition >= 1)
 	{
 		free(prog->image);
+		free(prog->player->count_str);
 		free(prog->player);
 		free(prog->exit);
 		free(prog->mlx);
