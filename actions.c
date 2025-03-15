@@ -111,19 +111,17 @@ int	move_up(t_prog *prog, char **map)
 int	keycode_actions(int keycode, void *param)
 {
 	t_prog	*prog_data;
-	int		flag;
 
-	flag = 0;
 	prog_data = param;
 	find_character_position(prog_data);
 	if (keycode == 97)
-		flag += move_left(prog_data, prog_data->map);
+		move_left(prog_data, prog_data->map);
 	else if (keycode == 119)
-		flag += move_up(prog_data, prog_data->map);
+		move_up(prog_data, prog_data->map);
 	else if (keycode == 115)
-		flag += move_down(prog_data, prog_data->map);
+		move_down(prog_data, prog_data->map);
 	else if (keycode == 100)
-		flag += move_right(prog_data, prog_data->map);
+		move_right(prog_data, prog_data->map);
 	if (keycode == 65307)
 		free_all(prog_data, 2);
 	return (0);
