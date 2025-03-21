@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:00 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/14 14:04:59 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/14 22:41:33 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	init_prog(t_prog *prog)
 	{
 		ft_printf("ERROR: program creation failed\n");
 		free_all(prog, 1);
-		exit(1);
 	}
+	prog->player->count = 0;
 	add_null_image(prog);
 }
 
@@ -53,14 +53,13 @@ void	map_manage(t_prog *prog, char *map_name)
 	ctrl = 1;
 	if (map_name_check(map_name) == 0)
 	{
-		free_all(prog, 1);
 		ft_printf("ERROR: The map name is not correct\n");
-		exit(1);
+		free_all(prog, 1);
 	}
-	prog->map = map_read(prog->map_name);
+	prog->map = map_read(prog->map_name, prog);
 	if (!prog->map)
 		free_all(prog, 1);
-	prog->fake_map = map_read(prog->map_name);
+	prog->fake_map = map_read(prog->map_name, prog);
 	if (!prog->fake_map)
 		free_all(prog, 1);
 	count_map_x_y(prog->map, prog);

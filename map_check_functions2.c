@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:06 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/14 15:53:52 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/21 15:43:56 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,6 @@ void	map_is_true(t_prog *prog, char *map_name)
 		ft_printf("ERROR: map failed\n");
 		free_all(prog, 1);
 	}
+	if (check_number_error(prog) == -1)
+		free_all(prog, 1);
 }

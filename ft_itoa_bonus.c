@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 14:16:16 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/14 14:03:01 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/14 22:45:54 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,7 @@ void	ft_itoa(int n, char *count_str)
 {
 	int		len;
 	long	number;
-	int		i;
 
-	i = 0;
-	while (count_str[i])
-		count_str[i] = 0;
 	number = n;
 	len = ft_nums_len(n);
 	if (number == 0)

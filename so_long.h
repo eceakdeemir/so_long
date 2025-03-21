@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:17:04 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/14 15:55:32 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/21 12:53:16 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include "mlx_linux/mlx.h"
-# include "Get_Next_Line/get_next_line.h"
+# include "get_next_line/get_next_line.h"
 # include <fcntl.h>
 # include "printf/ft_printf.h"
 
@@ -66,7 +66,7 @@ void	map_manage(t_prog *prog, char *map_name);
 void	mlx_manage(t_prog *prog);
 int		flood_fill(t_prog *prog, int x, int y);
 void	count_map_x_y(char **map, t_prog *prog);
-char	**map_read(char *map_name);
+char	**map_read(char *map_name, t_prog *prog);
 int		keycode_actions(int keycode, void *param);
 int		move_up(t_prog *prog, char **map);
 int		move_down(t_prog *prog, char **map);
@@ -82,7 +82,6 @@ int		check_exit(t_prog *prog);
 int		counter_check_map(t_prog *prog, char a);
 int		counter_check_fake_map(t_prog *prog, char a);
 int		map_control(t_prog *prog);
-void	ft_itoa(int n, char *count_str);
 void	map_is_true(t_prog *prog, char *map_name);
 void	init_image(t_prog *prog);
 void	condition_image(char **map, void *mlx, t_prog *prog, void *wn);
@@ -98,7 +97,7 @@ void	condition_person_image(t_prog *prog, int count);
 void	condition_enemy_image(t_prog *prog, int count);
 void	condition_collect_image(t_prog *prog, int count);
 int		hook_func(void *param);
-void	map_read_helper(char *map_name, char **map);
+void	map_read_helper(char *map_name, char **map, t_prog *prog);
 void	condition_image_helper(t_prog *prog, char **map, int i, int j);
 
 #endif

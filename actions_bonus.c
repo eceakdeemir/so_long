@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:45:46 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/14 15:48:15 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/14 22:48:38 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	move_right(t_prog *prog, char **map)
 			prog->player->count++;
 			ft_printf("YOU WON THE GAME!\n");
 			free_all(prog, 2);
-			return (1);
 		}
 		if (map[prog->player->player_y][prog->player->player_x + 1] != 'E')
 		{
@@ -52,7 +51,6 @@ int	move_left(t_prog *prog, char **map)
 			prog->player->count++;
 			ft_printf("YOU WON THE GAME!\n");
 			free_all(prog, 2);
-			return (1);
 		}
 		if (map[prog->player->player_y][prog->player->player_x - 1] != 'E')
 		{
@@ -81,7 +79,6 @@ int	move_down(t_prog *prog, char **map)
 			prog->player->count++;
 			ft_printf("YOU WON THE GAME!\n");
 			free_all(prog, 2);
-			return (1);
 		}
 		if (map[prog->player->player_y + 1][prog->player->player_x] != 'E')
 		{
@@ -110,7 +107,6 @@ int	move_up(t_prog *prog, char **map)
 			prog->player->count++;
 			ft_printf("YOU WON THE GAME!\n");
 			free_all(prog, 2);
-			return (1);
 		}
 		if (map[prog->player->player_y - 1][prog->player->player_x] != 'E')
 		{

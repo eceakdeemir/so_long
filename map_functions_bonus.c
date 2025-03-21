@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:46:09 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/14 14:47:30 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/14 22:32:20 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	count_map_x_y(char **map, t_prog *prog)
 	prog->map_y = i;
 }
 
-void	map_read_helper(char *map_name, char **map)
+void	map_read_helper(char *map_name, char **map, t_prog *prog)
 {
 	int	fd;
 	int	i;
@@ -54,7 +54,7 @@ void	map_read_helper(char *map_name, char **map)
 	if (fd <= 0)
 	{
 		ft_printf("ERROR: map can't open\n");
-		exit(1);
+		free_all(prog, 1);
 	}
 	i = 0;
 	map[i] = get_next_line(fd);
@@ -67,7 +67,7 @@ void	map_read_helper(char *map_name, char **map)
 	close(fd);
 }
 
-char	**map_read(char *map_name)
+char	**map_read(char *map_name, t_prog *prog)
 {
 	int		fd;
 	int		i;
@@ -77,7 +77,7 @@ char	**map_read(char *map_name)
 	i = 0;
 	fd = open(map_name, O_RDONLY);
 	if (fd <= 0)
-		map_read_helper(map_name, map);
+		map_read_helper(map_name, map, prog);
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -92,6 +92,6 @@ char	**map_read(char *map_name)
 		return (NULL);
 	}
 	close(fd);
-	map_read_helper(map_name, map);
+	map_read_helper(map_name, map, prog);
 	return (map);
 }

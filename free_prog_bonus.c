@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:45:55 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/03/14 14:02:56 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/03/14 22:57:40 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ int	x_button(void *param)
 
 	program = param;
 	free_all(program, 2);
-	exit(1);
+	return (0);
 }
